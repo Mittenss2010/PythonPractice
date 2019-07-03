@@ -7,9 +7,9 @@ __pycache__/
 *.so
 
 #ignore images  and params
-/ignore_video/*
-/ignore_params/*
-/ignore_class_test/*
+/Track_keyPoint/ignore_video/*
+/Track_keyPoint/ignore_params/*
+/Track_keyPoint/ignore_class_test/*
 /__pycache__/*
 
 # Distribution / packaging
