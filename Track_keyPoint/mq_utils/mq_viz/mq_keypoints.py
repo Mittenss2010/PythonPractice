@@ -177,6 +177,7 @@ def plot_keypoints(img, coords, confidence, class_ids, bboxes, scores,
                    thresh=box_thresh, 
                    colors=colors,
                    **kwargs)
+    
     # 画框
     # 构造 colormap_index
     colormap_index = np.linspace(0, 1, len(joint_pairs))
