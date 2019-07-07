@@ -9,7 +9,8 @@ __pycache__/
 #ignore images  and params
 /Track_keyPoint/ignore_video/*
 /Track_keyPoint/ignore_params/*
-/Track_keyPoint/ignore_class_test/*
+/Track_keyPoint/ignore_files/*
+/ignore_files/*
 /__pycache__/*
 
 # Distribution / packaging
