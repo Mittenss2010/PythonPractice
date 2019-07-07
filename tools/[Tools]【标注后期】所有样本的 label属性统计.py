@@ -8,34 +8,57 @@ try:
 except ImportError:
     import xml.etree.ElementTree as ET
 
-'''
-    字典：要修改的旧，新名称
-'''
-classnames_dict = {
-            'yeqidaqian_close':'yeqidaqian_close',
-            'roi_zhuan_pan':'zhuanpan_roi',
-            'anquanlian':'anquanlian_no'
-            }
+
+def union_dict(A, B):
+    '''
+        字典合并值相加
+
+    '''
+    for key, value in B.items():
+        if key in A:
+            A[key] += value
+        else:
+            A[key] = value
 
 
-def rename_label(anno_path):
+def get_labels(anno_path):
     """
         Parse xml file and return labels.
-        解析xml，并根据字典中的项目来修订新的名称
+        解析xml，获取class名称，及个数
+        class 1:1
+        class 2:5
+        class 3:1
+        class 4:5
+        返回字典：{ 'classname': num, ...}
     """
+
     tree = ET.parse(anno_path)
     root = tree.getroot()
-
+    classnames = {}                                        # 统计classnames 及 num
     for obj in root.iter('object'):
         cls_name = obj.find('name').text.strip().lower()   # 获取classname
-        cls_name = classnames_dict[cls_name]               # 更新classname
-        obj.set('name',cls_name)
+        if cls_name not in classnames:
+            classnames[cls_name] = 1
+        else:
+            classnames[cls_name] +=1
+    return classnames
 
-        if cls_name not in classnames_dict:
-            continue
-    tree.write('output.xml', "UTF-8")
+def statistic_obj(class_names_dict):
+    total_count = 0
+    for item in class_names_dict:
+        total_count += class_names_dict[item]             # 计算目标总数
 
+    for item in class_names_dict:                         # 计算百分比 
+        precent = class_names_dict[item]/total_count*100
+        print(item + ': ' + format(precent, '.2f') + '%')
 
 if __name__ == "__main__":
-    for i in os.listdir(./)      
-    print(rename_label('test.xml'))
+    xmlpath = './ignore_files/xmls/'
+
+    # 字典合并
+    class_names_dict = {}
+    for item in os.listdir(xmlpath):
+        union_dict(class_names_dict, get_labels(xmlpath + item))
+
+    statistic_obj(class_names_dict)
+
