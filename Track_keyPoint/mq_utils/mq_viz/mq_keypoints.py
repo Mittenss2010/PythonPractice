@@ -177,6 +177,7 @@ def plot_keypoints(img, coords, confidence, class_ids, bboxes, scores,
                    thresh=box_thresh, 
                    colors=colors,
                    **kwargs)
+
     
     # 画框
     # 构造 colormap_index
@@ -184,32 +185,41 @@ def plot_keypoints(img, coords, confidence, class_ids, bboxes, scores,
 
     for i in range(coords.shape[0]):     # 遍历人类目标个数，坐标组 
         pts = coords[i]                  # 获取点集合
-        #print("***********************************************************")
-        #print("pts.count = " + str(len(pts)))
-        #print("pts.shape = " + str(pts.shape))
-        #print("colormap_index = " + str(colormap_index))
-        #print("joint_pairs = " + str(joint_pairs))
-        #print("***********************************************************")
+        # print("***********************************************************")
+        # print("pts.count = " + str(len(pts)))
+        # print("pts.shape = " + str(pts.shape))
+        # print("colormap_index = " + str(colormap_index))
+        # print("joint_pairs = " + str(joint_pairs))
+        # print("***********************************************************")
 
+        cyc_count = 0
         for cm_ind, jp in zip(colormap_index, joint_pairs):
+            cyc_count+=1
+            # print("第几个点:" + str(cyc_count))
             # print("cm_ind :" + str(cm_ind))
             # print("jp :" + str(jp))
             if joint_visible[i, jp[0]] and joint_visible[i, jp[1]]:
-
                 # 画线
                 # 起点：(x,y) = (pts[jp, 0][0], pts[jp, 1][0])
                 # 终点：(x,y) = (pts[jp, 0][1], pts[jp, 1][y])
-                color = (random.random()*255,random.random()*255,random.random()*255)
+                color = (random.random()*255, random.random()*255, random.random()*255)
                 cv2.line(img,(pts[jp, 0][0], pts[jp, 1][0]),(pts[jp, 0][1], pts[jp, 1][1]),color,2)
-                
+                # print("两点位置:" + str(pts[jp, 0]) + str(pts[jp, 1]))
+                # print("第几个点:" + str(cyc_count))
+
                 # 传入x元组，传入y元组，绘制直线
                 # ax.plot(pts[jp, 0], pts[jp, 1],linewidth=3.0, alpha=0.7, color=plt.cm.cool(cm_ind))
                 # print("plot_data_input:" + str(pts[jp, 0]) + str(pts[jp, 1]))
 
                 # 画点
                 # (x,y)——对儿
-                cv2.circle(img,(pts[jp, 0][0],pts[jp, 1][0]),2,(0,255,255),-1)#圆，-1为向内填充
-                cv2.circle(img,(pts[jp, 0][1],pts[jp, 1][1]),2,(0,255,255),-1)#圆，-1为向内填充
+                if cyc_count == 7 or cyc_count == 9:
+                    cv2.circle(img,(pts[jp, 0][1],pts[jp, 1][1]),5,(255,255,0),-1)#圆，-1为向内填充
+                if cyc_count == 15 or cyc_count == 16:
+                    cv2.circle(img,(pts[jp, 0][1],pts[jp, 1][1]),5,(0,255,255),-1)#圆，-1为向内填充
+
+                # cv2.circle(img,(pts[jp, 0][0],pts[jp, 1][0]),2,(0,255,255),-1) #圆，-1为向内填充
+                # cv2.circle(img,(pts[jp, 0][1],pts[jp, 1][1]),2,(0,255,255),-1) #圆，-1为向内填充
 
                 # 传入x元组，传入y元组，绘制点
                 # ax.scatter(pts[jp, 0], pts[jp, 1], s=20)

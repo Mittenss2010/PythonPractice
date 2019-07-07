@@ -34,11 +34,13 @@ axes = None
 num_frames = 1000
 
 for i in range(num_frames):
-    ret, frame = cap.read()
 
+    print("当前是第：" + str(num_frames))
+    ret, frame = cap.read()
     frame = mx.nd.array(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)).astype('uint8')
 
     x, frame = gcv.data.transforms.presets.yolo.transform_test(frame, short=512, max_size=350)
+    # x, frame = gcv.data.transforms.presets.yolo.transform_test(frame, short=720, max_size=1280)
 
     x = x.as_in_context(ctx)
     class_IDs, scores, bounding_boxs = detector(x)
