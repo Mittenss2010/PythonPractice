@@ -31,8 +31,7 @@ def get_labels(anno_path):
         class 4:5
         返回字典：{ 'classname': num, ...}
     """
-
-    tree = ET.parse(anno_path)
+    tree = ET.parse(anno_path)        #, "UTF-8"
     root = tree.getroot()
     classnames = {}                                        # 统计classnames 及 num
     for obj in root.iter('object'):
@@ -53,12 +52,15 @@ def statistic_obj(class_names_dict):
         print(item + ': ' + format(precent, '.2f') + '%')
 
 if __name__ == "__main__":
-    xmlpath = './ignore_files/xmls/'
+    # xmlpath = './ignore_files/xmls/'
+    xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
 
     # 字典合并
     class_names_dict = {}
     for item in os.listdir(xmlpath):
-        union_dict(class_names_dict, get_labels(xmlpath + item))
+        if item[-4:] == '.xml':
+            #print(item)
+            union_dict(class_names_dict, get_labels(xmlpath + item))
 
     statistic_obj(class_names_dict)
 

@@ -22,8 +22,9 @@ def print_cap_prop(cap):
     print("帧率：" + str(fps))
     print("总帧数：" + str(total_frames))
 
-    
-cap=cv2.VideoCapture('ok.mp4')        #文件名及格式
+video_path = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】行为识别-第5批/hiv00010.mp4'
+
+cap=cv2.VideoCapture(video_path)        #文件名及格式
 print_cap_prop(cap)                   # 打印属性信息
 frameCount = int(cap.get(cv2.CAP_PROP_POS_FRAMES))    # 初始化帧号
 sampleRate = int(cap.get(cv2.CAP_PROP_FPS))          # 视频采样率，每秒采集1frame 
