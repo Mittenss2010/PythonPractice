@@ -14,7 +14,7 @@ pathXML_Original = "./temp.xml"
 pathDest = picPath + "/temp.xml"
 
 for item in os.listdir(picPath):
-    print(item) 
+    print(item)
     shutil.copy(pathXML_Original,pathDest)
     shutil.move(pathDest,picPath + item[:-3] + 'xml')
     # break
