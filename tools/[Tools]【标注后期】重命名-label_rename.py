@@ -37,5 +37,5 @@ def rename_label(anno_path):
 
 
 if __name__ == "__main__":
-    for i in os.list       
-    print(rename_label('test.xml'))
+    for i in os.list:   
+        print(rename_label('test.xml'))
