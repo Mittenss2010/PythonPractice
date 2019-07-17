@@ -46,6 +46,8 @@ def statistic_obj(class_names_dict):
     total_count = 0
     for item in class_names_dict:
         total_count += class_names_dict[item]             # 计算目标总数
+        
+    print(total_count)
 
     for item in class_names_dict:                         # 计算百分比 
         precent = class_names_dict[item]/total_count*100
@@ -53,14 +55,18 @@ def statistic_obj(class_names_dict):
 
 if __name__ == "__main__":
     # xmlpath = './ignore_files/xmls/'
-    xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
+    # xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
+    # xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
+    
+    #xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
+    xmlpath = 'G:/cqsy_collection/数据标注管理/2019-07-17-mix-1843/'
+    # xmlpath = 'G:/cqsy_collection/数据标注管理/newXmls/'
 
     # 字典合并
     class_names_dict = {}
     for item in os.listdir(xmlpath):
         if item[-4:] == '.xml':
-            #print(item)
+            #print(xmlpath + item)
             union_dict(class_names_dict, get_labels(xmlpath + item))
-
     statistic_obj(class_names_dict)
 
