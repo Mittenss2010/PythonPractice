@@ -1,17 +1,15 @@
 import os
 import shutil
-count = 0
-folderName = "01"
 
-# 修改为图片路径
-picPath = "./" + folderName + "/"
-# 修改为原始xml 路径
-pathXML_Original = "./7575.xml"
-# 修改为：图片路径 + temp.xml
-pathDest = picPath + "/temp.xml"
+folderName = "2019年7月18日-02"      # 图片所在，文件夹名称
+pathXML_Original = "./525.xml"       # 画好框的xml 名称，例：123.xml，525.xml
+
+picPath = "./" + folderName + "/" 
+pathDest = picPath + "/temp.xml"     
 
 for item in os.listdir(picPath):
-    print(item) 
-    shutil.copy(pathXML_Original,pathDest)              # 复制
-    shutil.move(pathDest,picPath + item[:-3] + 'xml')   # 改名
-    # break
+    shutil.copy(pathXML_Original,pathDest)
+    shutil.move(pathDest,picPath + item[:-3] + 'xml')
+
+
+    

@@ -59,7 +59,7 @@ if __name__ == "__main__":
     # xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
     
     #xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
-    xmlpath = 'G:/cqsy_collection/数据标注管理/2019-07-17-mix-1843/'
+    xmlpath = 'G:/cqsy_collection/数据标注管理/2019-07-16-mix-624(me 已改名)/'
     # xmlpath = 'G:/cqsy_collection/数据标注管理/newXmls/'
 
     # 字典合并

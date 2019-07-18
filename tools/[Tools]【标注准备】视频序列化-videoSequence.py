@@ -25,11 +25,13 @@ def print_cap_prop(cap):
     print("总帧数：" + str(total_frames))
 
 # video_path = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】行为识别-第5批/hiv00010.mp4'
-video_path = '2019年7月16日 182207(50627)钻台面数据表演Clip.mp4'
+video_path = '2019年7月16日 182207(50627)司钻房-数据表演(已标注)clip.mp4'
 
 imageSavePath = './01/'
 address = '50627_'
-sub_address = 'ZTM_'
+# sub_address = 'QJ_'
+# sub_address = 'ZTM_'
+sub_address = 'SZF_'
 
 
 cap=cv2.VideoCapture(video_path)        #文件名及格式
@@ -42,15 +44,15 @@ while(frameCount<total_frames):
     ret , frame = cap.read()
     frameCount = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
     #cv2.imshow('frame', frame)
+    #if frameCount % sampleRate == 0:
     if frameCount % sampleRate == 0:
         if not os.path.exists(imageSavePath):
             os.mkdir(imageSavePath)
         now = time.strftime('%Y-%m-%d-%H-%M-%S_',time.localtime(time.time()))
         savePath = imageSavePath + address + sub_address + now + str(frameCount) + '.jpg'
         cv2.imwrite(savePath, frame)
-        print(savePath)
-        print("帧存储index：" + str(frameCount))
-        
+        #print(savePath)
+        print("帧存储index：" + str(frameCount) + '/' + str(total_frames))
         #break
     # if cv2.waitKey(30) &0xFF == ord('q'):  #按q键退出
     #     break
