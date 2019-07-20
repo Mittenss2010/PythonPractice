@@ -9,13 +9,13 @@ except ImportError:
     import xml.etree.ElementTree as ET
 
 # detection中的类别属性
-newList = ('zhuanpan','yeqidaqian_close','yeqidaqian','taoguanqian','taoguan','bxingdiaoqian','gunzifangbuxin','xiaofangbuxin','diaoqia','diaoqia_xiaozi','tishengduanjie','zuanting',
-            'qiawa','anquanqiawa','duopianqiawa','zuangan','xuanzhuanbuwei_nawujian','youtong','anquanlian','anquanlian_no','fangpenqi','gouzi','shudongguan','shudongkou',
-            'zuangantou',         # 特有的一些项
-            'xiaozi_inhand','fangzuangan','qianzi','banshou','langtou','guaniqi','huangyouqiang','gangju','zuantou','zuantouhezi','tieqiao'
-            'ren','anquanmao_red','kouzhao','gongxie','bianxie','gongzhuang','bianzhuang','shoutao','shou',
-            'shouji','shuiping','chouyan','beizi','benzi','mabu',
-            'chelun')
+# newList = ('zhuanpan','yeqidaqian_close','yeqidaqian','taoguanqian','taoguan','bxingdiaoqian','gunzifangbuxin','xiaofangbuxin','diaoqia','diaoqia_xiaozi','tishengduanjie','zuanting',
+#             'qiawa','anquanqiawa','duopianqiawa','zuangan','xuanzhuanbuwei_nawujian','youtong','anquanlian','anquanlian_no','fangpenqi','gouzi','shudongguan','shudongkou',
+#             'zuangantou',         # 特有的一些项
+#             'xiaozi_inhand','fangzuangan','qianzi','banshou','langtou','guaniqi','huangyouqiang','gangju','zuantou','zuantouhezi','tieqiao'
+#             'ren','anquanmao_red','kouzhao','gongxie','bianxie','gongzhuang','bianzhuang','shoutao','shou',
+#             'shouji','shuiping','chouyan','beizi','benzi','mabu',
+#             'chelun')
 
 
 '''
@@ -25,12 +25,14 @@ classnames_dict = {
             'roi_zhuan_pan':'zhuanpan',
             'zhuanpan_roi':'zhuanpan',
             'roi_zhuan_pan1':'zhuanpan',
+            'zhuanpan':'zhuanpan',
+
             'yeqidaqian_close':'yeqidaqian_close',
             'ye_qi_da_qian':'yeqidaqian',
             'yeqidaqian1':'yeqidaqian',
             'yeqidaqian':'yeqidaqian',
 
-            'none':'taoguanqian',
+            'taoguanqian':'taoguanqian',
             'taoguan':'taoguan',
             'bxingdiaoqian':'bxingdiaoqian',
             'bxdq':'bxingdiaoqian',
@@ -47,8 +49,8 @@ classnames_dict = {
             'diao_qia':'diaoqia',
             'diaoqia-noxiaozi':'diaoqia',
             'diaoqia-xiaozi':'diaoqia_xiaozi',
-            'none':'tishengduanjie',
-            'none':'zuanting',
+            'tishengduanjie':'tishengduanjie',
+            'zuanting':'zuanting',
             'qiawa':'qiawa',
             'anquanqiawa':'anquanqiawa',
             'duopianqiawa':'duopianqiawa',
@@ -64,7 +66,8 @@ classnames_dict = {
             'fangkongqi':'fangpenqi',
 
             'gouzi':'gouzi',
-            'none':'shudongguan',
+            'shudongguan':'shudongguan',
+
             'shudongkou':'shudongkou',
             'shu_dong_kou':'shudongkou',
             'shoudongkou':'shudongkou',
@@ -103,9 +106,11 @@ classnames_dict = {
             'person':'ren',
             'ren':'ren',
 
+            'anquanmao_no':'anquanmao_no',
             'anquanmao-red':'anquanmao_red',
             'anquanmao_red':'anquanmao_red',
             'anquanmao_white':'anquanmao_white',
+            'anquanmao_yellow':'anquanmao_yellow',
 
             'kouzhao':'kouzhao',
             'gongxie':'gongxie',
@@ -126,11 +131,15 @@ classnames_dict = {
             'benzi':'benzi',
             'mabu':'mabu',
             'shouji':'shouji',
+            'yusan':'yusan',
+
 
             'none':'chelun',
             'shou-na':'shou',
             'shou-down':'shou',
             'shou-up':'shou',
+
+
             }
 
 
@@ -157,7 +166,7 @@ def rename_label(filename, xmlsPath, xmlsPath_new):
 if __name__ == "__main__":
 
     #xmlsPath = 'G:/cqsy_collection/2019-07-16-mix/'
-    xmlsPath = 'G:/cqsy_collection/数据标注管理/2019-07-17-mix/'
+    xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
 
     dirName = xmlsPath.split('/')[-2]
     originPath = xmlsPath[:-len(dirName)-2]

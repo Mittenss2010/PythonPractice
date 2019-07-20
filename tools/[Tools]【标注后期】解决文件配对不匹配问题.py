@@ -4,7 +4,7 @@ import time
 
 # 不同文件夹数据，文件重名处理
 
-xmlsPath = './461/'
+xmlsPath = './1670/'
 xmlsPath_new = './不成对的文件/'
 
 if not os.path.exists(xmlsPath_new):
@@ -14,18 +14,35 @@ if not os.path.exists(xmlsPath_new):
 # 构建jpg集合与xml集合
 xml_set = set()
 jpg_set = set()
+xml_list = []
+jpg_list = []
+
 
 for filename in os.listdir(xmlsPath):
     if filename[-4:] == '.xml':
+        xml_list.append(filename[:-4])
+        if filename[:-4] in xml_set:
+                print(filename)
         xml_set.add(filename[:-4])
+
 
 for filename in os.listdir(xmlsPath):
     if filename[-4:] == '.jpg':
+        jpg_list.append(filename[:-4])
+        if filename[:-4] in jpg_set:
+                print(filename)
         jpg_set.add(filename[:-4])
+
+print(len(xml_set))
+print(len(jpg_set))
+print(len(xml_list))
+print(len(jpg_list))
+
 
 # 输出两集合中不相同的元素
 print(xml_set.symmetric_difference(jpg_set))
 
+# 
 
         # if filename not in temp_set:
         #     shutil.copy(xmlsPath + filename, xmlsPath_new + filename)

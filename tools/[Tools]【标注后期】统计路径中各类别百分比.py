@@ -20,7 +20,6 @@ def union_dict(A, B):
         else:
             A[key] = value
 
-
 def get_labels(anno_path):
     """
         Parse xml file and return labels.
@@ -59,9 +58,9 @@ if __name__ == "__main__":
     # xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
     
     #xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
-    xmlpath = 'G:/cqsy_collection/数据标注管理/2019-07-16-mix-624(me 已改名)/'
-    # xmlpath = 'G:/cqsy_collection/数据标注管理/newXmls/'
-
+    #xmlpath = 'G:/datasets-if/'
+    xmlpath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-19/'
+    
     # 字典合并
     class_names_dict = {}
     for item in os.listdir(xmlpath):

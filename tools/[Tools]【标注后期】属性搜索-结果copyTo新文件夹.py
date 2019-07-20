@@ -12,8 +12,7 @@ except ImportError:
 '''
     列表：要搜索的属性列表
 '''
-classnames_list = ['shuitong'
-                    ]
+classnames_list = [ 'anquanma']
 
 def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
     """
@@ -64,7 +63,9 @@ def getNewPath(xmlsPath, classnames_list):
 
 if __name__ == "__main__":
 
-    xmlsPath = 'G:/cqsy_collection/数据标注管理/2019-07-17-mix/'
+    xmlsPath = 'G:/cqsy_collection/数据标注管理/【已标注】接收的图片/合并/01/'
+
+   # xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
 
     xmlsPath_list = getNewPath(xmlsPath, classnames_list)
 
