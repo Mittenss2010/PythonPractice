@@ -2,6 +2,7 @@
 import numpy as np
 import os
 import shutil
+from tqdm import tqdm
 
 try:
     import xml.etree.cElementTree as ET
@@ -30,7 +31,9 @@ classnames_dict = {
             'yeqidaqian_close':'yeqidaqian_close',
             'ye_qi_da_qian':'yeqidaqian',
             'yeqidaqian1':'yeqidaqian',
+            'yeqidqian':'yeqidaqian',
             'yeqidaqian':'yeqidaqian',
+            'yeyagan':'yeyagan',
 
             'taoguanqian':'taoguanqian',
             'taoguan':'taoguan',
@@ -77,19 +80,29 @@ classnames_dict = {
             'xiaozi-in-hand':'xiaozi_inhand',
             'fangzuangan':'fangzuangan',
             'ye_ya_mao_tou':'yeyamaotou',
+            'yeyamaotou':'yeyamaotou',
+
             'tisi':'tisi',
 
 
             'roi_ti_sheng_duan_jie':'tishengduanjie_roi',
+            'tishengduanjie_roi':'tishengduanjie_roi',
             'roi_hu_lian':'hulian_roi',
+            'hulian_roi':'hulian_roi',
+
             'roi_hu_lan':'hulan_roi',
+            'hulan_roi':'hulan_roi',
+
             'roi_zuan_gan':'zuangan_roi',
             'roi_zuan_ju':'zuangan_roi',
+            'zuangan_roi':'zuangan_roi',
+
             'fengdongjiaoche':'fengdongjiaoche',
             'feng_dong_jiao_che':'fengdongjiaoche',
 
             'san_pian_shi_qia_wa':'sanpianshiqiawa',
-            
+            'sanpianshiqiawa':'sanpianshiqiawa',     
+
             'tianjiu':'tieqiao',
             'tieqiao':'tieqiao',
 
@@ -132,14 +145,11 @@ classnames_dict = {
             'mabu':'mabu',
             'shouji':'shouji',
             'yusan':'yusan',
-
-
+            
             'none':'chelun',
             'shou-na':'shou',
             'shou-down':'shou',
             'shou-up':'shou',
-
-
             }
 
 
@@ -166,7 +176,10 @@ def rename_label(filename, xmlsPath, xmlsPath_new):
 if __name__ == "__main__":
 
     #xmlsPath = 'G:/cqsy_collection/2019-07-16-mix/'
-    xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
+    #xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
+    #xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【已标注】接收的图片/合并/01/'
+    xmlsPath = 'G:/2019-07-21/'
+    xmlsPath = 'G:/VOCdevkit/'
 
     dirName = xmlsPath.split('/')[-2]
     originPath = xmlsPath[:-len(dirName)-2]
@@ -175,8 +188,8 @@ if __name__ == "__main__":
     if not os.path.exists(xmlsPath_new):
        os.mkdir(xmlsPath_new)
        
-    for filename in os.listdir(xmlsPath):
+    for filename in tqdm(os.listdir(xmlsPath)):
         if filename[-4:] == '.xml':
-            print(filename)
+            # print(filename)
             rename_label(filename, xmlsPath, xmlsPath_new)
             # break

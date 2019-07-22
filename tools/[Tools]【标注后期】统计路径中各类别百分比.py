@@ -2,6 +2,7 @@
 import numpy as np
 import os
 import shutil
+from tqdm import tqdm
 
 try:
     import xml.etree.cElementTree as ET
@@ -55,17 +56,40 @@ def statistic_obj(class_names_dict):
 if __name__ == "__main__":
     # xmlpath = './ignore_files/xmls/'
     # xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
-    # xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
+    # xmlpath = 'G:/【cqsy_collection】/2019-07-16-mix/'
     
-    #xmlpath = 'G:/cqsy_collection/2019-07-16-mix/'
+    #xmlpath = 'G:/【cqsy_collection】/2019-07-16-mix/'
     #xmlpath = 'G:/datasets-if/'
-    xmlpath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-19/'
-    
+    #xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-19/'
+    # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-20-表演过的数据集-showatdoor/'
+    # xmlsPath = 'G:/2019-07-21/'
+    xmlsPath = 'G:/300/'
+   # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【已标注】接收的图片/2019-07-22/300/'
     # 字典合并
     class_names_dict = {}
-    for item in os.listdir(xmlpath):
+    
+    # 针对单个文件夹
+    for item in tqdm(os.listdir(xmlsPath)):
         if item[-4:] == '.xml':
-            #print(xmlpath + item)
-            union_dict(class_names_dict, get_labels(xmlpath + item))
+            #print(xmlsPath + item)
+            union_dict(class_names_dict, get_labels(xmlsPath + item))
     statistic_obj(class_names_dict)
 
+
+    #针对多个层级
+    # dirPath = 'G:/datasets-7018/'
+    # trainxmls = 'train/labels/'
+    # testxmls = 'val/labels/'
+
+    # xmlsPath = dirPath + trainxmls
+    # for item in tqdm(os.listdir(xmlsPath)):
+    #     if item[-4:] == '.xml':
+    #         #print(xmlsPath + item)
+    #         union_dict(class_names_dict, get_labels(xmlsPath + item))
+   
+    # xmlsPath = dirPath + testxmls
+    # for item in tqdm(os.listdir(xmlsPath)):
+    #     if item[-4:] == '.xml':
+    #         #print(xmlsPath + item)
+    #         union_dict(class_names_dict, get_labels(xmlsPath + item))
+    # statistic_obj(class_names_dict)

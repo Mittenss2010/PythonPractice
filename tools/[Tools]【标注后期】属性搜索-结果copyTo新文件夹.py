@@ -3,6 +3,7 @@ import numpy as np
 import os
 import shutil
 import time
+from tqdm import tqdm 
 
 try:
     import xml.etree.cElementTree as ET
@@ -12,7 +13,7 @@ except ImportError:
 '''
     列表：要搜索的属性列表
 '''
-classnames_list = [ 'anquanma']
+classnames_list = [ 'wa', 'r']
 
 def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
     """
@@ -37,8 +38,8 @@ def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
                 print(xmlnewPath)
                 shutil.move(anno_path, xmlnewPath)
                 shutil.move(anno_path[:-4] + '.jpg', xmlnewPath[:-4] + '.jpg')
-                time.sleep(1)
-                break
+                #time.sleep(1)
+                return 
                 # 文件移动
 
 def get_fatherPath(xmlsPath):
@@ -63,13 +64,14 @@ def getNewPath(xmlsPath, classnames_list):
 
 if __name__ == "__main__":
 
-    xmlsPath = 'G:/cqsy_collection/数据标注管理/【已标注】接收的图片/合并/01/'
 
-   # xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
+   # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/1670/'
+    # xmlsPath = 'G:/2019-07-21/'
+    xmlsPath = 'G:/300/'
 
     xmlsPath_list = getNewPath(xmlsPath, classnames_list)
 
-    for filename in os.listdir(xmlsPath):
+    for filename in tqdm(os.listdir(xmlsPath)):
         if filename[-4:] == '.xml':
-            print(filename)
+            #print(filename)
             get_xmls_cotainedlabel(filename, xmlsPath, classnames_list)

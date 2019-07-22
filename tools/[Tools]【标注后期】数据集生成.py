@@ -99,7 +99,11 @@ class ConstructDatasets():
 
 if __name__ == "__main__":
     
-    dataPath = 'G:/cqsy_collection/数据标注管理/【数据集】测试过的数据集/2019-07-19/'
+    # dataPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-20-表演过的数据集-showatdoor/'
+
+    dataPath = 'G:/2019-07-22/'
+    # dataPath = 'G:/VOCdevkit/'
+
     # 验证集比例
     val_percent = 0.1
     train_percent = 0.9

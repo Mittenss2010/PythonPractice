@@ -81,7 +81,12 @@ def plot_bbox(img, bboxes, scores=None, labels=None, thresh=0.5,
 
     minIndex = None
     
+    print(bboxes)
+    print('*********************************************************************')
+
     for i, bbox in enumerate(bboxes):
+        print(bbox)
+
         # 屏蔽评分小于阈值的目标
         # 标签<0??? 不存在的标签？？or背景
         if scores is not None and scores.flat[i] < thresh:
@@ -99,6 +104,9 @@ def plot_bbox(img, bboxes, scores=None, labels=None, thresh=0.5,
                 colors[cls_id] = (random.random(), random.random(), random.random())
         # 初始化Rectangle 坐标
         xmin, ymin, xmax, ymax = [int(x) for x in bbox]
+        print(xmin, ymin, xmax, ymax)
+        height = img.shape[0]
+        width = img.shape[1]
         #绘制矩形框
         cv2.rectangle(img,(xmin,ymin),(xmax,ymax),(255,0,0), 2)
 

@@ -13,7 +13,7 @@ from gluoncv import data
 from gluoncv.data import mscoco
 from gluoncv.model_zoo import get_model
 from gluoncv.data.transforms.pose import detector_to_simple_pose, heatmap_to_coord
-from mq_utils.mq_viz import plot_keypoints
+from mq_utils.mq_viz import plot_bbox
 # from gluoncv.utils.viz import cv_plot_image, cv_plot_keypoints
 
 
@@ -22,39 +22,41 @@ ctx = mx.gpu(0)
 detector_name = "ssd_512_mobilenet1.0_coco"
 detector = get_model(detector_name, pretrained=True, ctx=ctx)
 detector.reset_class(classes=['person'], reuse_weights={'person':'person'})
-estimator = get_model('simple_pose_resnet18_v1b', pretrained='ccd24037', ctx=ctx)
+#estimator = get_model('simple_pose_resnet18_v1b', pretrained='ccd24037', ctx=ctx)
 
 
 # 构造视频相关参数
-video_path = './ignore_video/002.mp4'
-cap = cv2.VideoCapture(video_path)                # 文件名及格式
-# time.sleep(1)                                     # 原为摄像头拍摄 letting the camera autofocus
-
-
+video_path = './ignore_video/images/'
 axes = None
 num_frames = 1000
-
-for i in range(num_frames):
-
-    print("当前是第：" + str(num_frames))
-    ret, frame = cap.read()
+for filename in os.listdir(video_path):
+    
+    cv2.imread()
     frame = mx.nd.array(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)).astype('uint8')
 
     x, frame = gcv.data.transforms.presets.yolo.transform_test(frame, short=512, max_size=350)
     # x, frame = gcv.data.transforms.presets.yolo.transform_test(frame, short=720, max_size=1280)
-
     x = x.as_in_context(ctx)
     class_IDs, scores, bounding_boxs = detector(x)
-    pose_input, upscale_bbox = detector_to_simple_pose(frame, class_IDs, scores, bounding_boxs,
-                                                        output_shape=(128, 96), ctx=ctx)
-    if len(upscale_bbox) > 0:
-        predicted_heatmap = estimator(pose_input)
-        pred_coords, confidence = heatmap_to_coord(predicted_heatmap, upscale_bbox)
 
-        img = plot_keypoints(frame, pred_coords, confidence, class_IDs, bounding_boxs, scores,
-                                box_thresh=0.5, keypoint_thresh=0.2)
-        # cv_plot_image(img)
-        cv2.imshow("img", img)
-    cv2.waitKey(1)
+    # print(bounding_boxs)
+    # print(scores)
+    # print(class_IDs)
+
+    person_ind = class_IDs[0] == 0
+
+    colors = {0: (255, 0, 0), 1:(0, 255, 0)}
+    img,ret_list, minIndex = plot_bbox(frame, 
+                                        bounding_boxs[0][person_ind[:, 0]],
+                                        scores[0][person_ind[:, 0]],
+                                        thresh=0.5)
+
+
+    # img, ret_list, minIndex = plot_bbox(frame, bounding_boxs, scores, class_IDs, 
+    #                                                     thresh=0.5, 
+    #                                                     class_names=['person'])
+
+    cv2.imshow("img", img)
+    cv2.waitKey(0)
 
 cap.release()

@@ -4,7 +4,7 @@ import time
 
 # 不同文件夹数据，文件重名处理
 
-xmlsPath = './1670/'
+xmlsPath = './VOCdevkit/'
 xmlsPath_new = './不成对的文件/'
 
 if not os.path.exists(xmlsPath_new):
@@ -40,13 +40,19 @@ print(len(jpg_list))
 
 
 # 输出两集合中不相同的元素
-print(xml_set.symmetric_difference(jpg_set))
+# print(xml_set.symmetric_difference(jpg_set))
 
-# 
-
-        # if filename not in temp_set:
-        #     shutil.copy(xmlsPath + filename, xmlsPath_new + filename)
-        #     print(filename)
+tempSet = xml_set.symmetric_difference(jpg_set)
+for item in tempSet:
+    # print(item)
+    if item not in xml_set:
+        filename = item + '.jpg'
+        shutil.move(xmlsPath + filename, xmlsPath_new + filename)
+        print(filename)
+    if item not in jpg_set:
+        filename = item + '.xml'
+        shutil.move(xmlsPath + filename, xmlsPath_new + filename)
+        print(filename)
 
 
 # temp = {}
