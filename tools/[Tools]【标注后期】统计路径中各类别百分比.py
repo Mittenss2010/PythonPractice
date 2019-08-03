@@ -49,9 +49,26 @@ def statistic_obj(class_names_dict):
         
     print(total_count)
 
-    for item in class_names_dict:                         # 计算百分比 
+
+# from collections import defaultdict 
+# d = defaultdict(int)
+# for w in text.split():   
+#     d[w] += 1
+
+# 然后你可以得到一个单词列表，按照使用频率sorted(d, key=d.get)排序 - 排序迭代字典键，使用单词出现次数作为排序键。
+
+# for w in sorted(d, key=d.get, reverse=True):   
+#     print w, d[w]
+
+    for item in sorted(class_names_dict, key=class_names_dict.get, reverse = True):
+        #print(item, class_names_dict[item])
         precent = class_names_dict[item]/total_count*100
         print(item + ': ' + format(precent, '.2f') + '%')
+
+    # # 字典值排序
+    # for item in class_names_dict:                         # 计算百分比 
+    #     precent = class_names_dict[item]/total_count*100
+    #     print(item + ': ' + format(precent, '.2f') + '%')
 
 if __name__ == "__main__":
     # xmlpath = './ignore_files/xmls/'
@@ -63,7 +80,10 @@ if __name__ == "__main__":
     #xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-19/'
     # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-20-表演过的数据集-showatdoor/'
     # xmlsPath = 'G:/2019-07-21/'
-    xmlsPath = 'G:/300/'
+    xmlsPath = 'G:/2019-07-22/'
+    #xmlsPath = 'G:/20190722/'
+    xmlsPath = 'G:/Totrain-20190726/'
+
    # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【已标注】接收的图片/2019-07-22/300/'
     # 字典合并
     class_names_dict = {}

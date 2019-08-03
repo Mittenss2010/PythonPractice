@@ -13,7 +13,19 @@ except ImportError:
 '''
     列表：要搜索的属性列表
 '''
-classnames_list = [ 'wa', 'r']
+classnames_list = [ 'a',
+                    's',
+                    'tushengduanjie_tou',
+                    'gongie',
+                    'shiutao',
+                    'zuanguan_roi',
+                    'bxdiaoqian',
+                    'bxingdianqian',
+                    'pangpenqi',
+                    'anquanlian\\',
+                    'anquanmao——red',
+                    'shiutao'
+                    ]
 
 def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
     """
@@ -67,7 +79,9 @@ if __name__ == "__main__":
 
    # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/1670/'
     # xmlsPath = 'G:/2019-07-21/'
-    xmlsPath = 'G:/300/'
+    # xmlsPath = 'G:/300/'
+    # xmlsPath = 'G:/2019-07-22/'
+    xmlsPath = 'G:/Totrain-20190726/'
 
     xmlsPath_list = getNewPath(xmlsPath, classnames_list)
 

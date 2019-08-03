@@ -29,11 +29,14 @@ classnames_dict = {
             'zhuanpan':'zhuanpan',
 
             'yeqidaqian_close':'yeqidaqian_close',
+            'yeqidaqian_open':'yeqidaqian_open',
+
             'ye_qi_da_qian':'yeqidaqian',
             'yeqidaqian1':'yeqidaqian',
             'yeqidqian':'yeqidaqian',
             'yeqidaqian':'yeqidaqian',
             'yeyagan':'yeyagan',
+            
 
             'taoguanqian':'taoguanqian',
             'taoguan':'taoguan',
@@ -52,18 +55,31 @@ classnames_dict = {
             'diao_qia':'diaoqia',
             'diaoqia-noxiaozi':'diaoqia',
             'diaoqia-xiaozi':'diaoqia_xiaozi',
+            'diaoqia_xiaozi':'diaoqia_xiaozi',
             'tishengduanjie':'tishengduanjie',
+            'tishengduanjie_tou':'tishengduanjie_tou',
+
             'zuanting':'zuanting',
+
             'qiawa':'qiawa',
             'anquanqiawa':'anquanqiawa',
             'duopianqiawa':'duopianqiawa',
-            
+            'qidongkawa':'qidongqiawa',
+            'qidongqiawa':'qidongqiawa',
+
+            'sanpianqiawa':'sanpianqiawa',
+
             'zuangan':'zuangan',
+            'zuangan_tou':'zuangan_tou',
+
             'none':'xuanzhuanbuwei_nawujian',
+
             'youtong':'youtong',
             'you_tong':'youtong',
+
             'anquanlian':'anquanlian',
             'anquanlian_no':'anquanlian_no',
+
             'fangpenqi':'fangpenqi',
             'fang_pen_qi':'fangpenqi',
             'fangkongqi':'fangpenqi',
@@ -107,6 +123,8 @@ classnames_dict = {
             'tieqiao':'tieqiao',
 
             'qianzi':'qianzi',
+            'lianqian':'lianqian',
+
             'banshou':'banshou',
             'langtou':'langtou',
             'guaniqi':'guaniqi',
@@ -119,7 +137,9 @@ classnames_dict = {
             'person':'ren',
             'ren':'ren',
 
+
             'anquanmao_no':'anquanmao_no',
+            'anquanmao':'anquanmao_red',
             'anquanmao-red':'anquanmao_red',
             'anquanmao_red':'anquanmao_red',
             'anquanmao_white':'anquanmao_white',
@@ -140,7 +160,8 @@ classnames_dict = {
             'tuoba':'tuoba',
             'shuiping':'shuiping',
             'chouyan':'chouyan',
-            'beizi':'beizi',
+            'beizi':'shuibei',
+            'shuibei':'shuibei',
             'benzi':'benzi',
             'mabu':'mabu',
             'shouji':'shouji',
@@ -178,8 +199,10 @@ if __name__ == "__main__":
     #xmlsPath = 'G:/cqsy_collection/2019-07-16-mix/'
     #xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
     #xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【已标注】接收的图片/合并/01/'
-    xmlsPath = 'G:/2019-07-21/'
-    xmlsPath = 'G:/VOCdevkit/'
+    # xmlsPath = 'G:/beizi/'
+    # xmlsPath = 'G:/VOCdevkit/'
+    xmlsPath = 'G:/Totrain-20190726/'
+
 
     dirName = xmlsPath.split('/')[-2]
     originPath = xmlsPath[:-len(dirName)-2]

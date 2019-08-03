@@ -34,8 +34,8 @@ sub_address = 'QJ_'
 # sub_address = 'SZF_'
 
 
-cap=cv2.VideoCapture(video_path)        #文件名及格式
-print_cap_prop(cap)                   # 打印属性信息
+cap=cv2.VideoCapture(video_path)        # 文件名及格式
+print_cap_prop(cap)                     # 打印属性信息
 frameCount = int(cap.get(cv2.CAP_PROP_POS_FRAMES))    # 初始化帧号
 sampleRate = int(cap.get(cv2.CAP_PROP_FPS))          # 视频采样率，每秒采集1frame 
 total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))   
@@ -52,7 +52,7 @@ while(frameCount<total_frames):
             os.mkdir(imageSavePath)
         now = time.strftime('%Y-%m-%d-%H-%M-%S_',time.localtime(time.time()))
         savePath = imageSavePath + address + sub_address + now + str(frameCount) + '.jpg'
-        cv2.imwrite(savePath, frame)
+        cv2.imwrite(savePath, frame, [cv2.IMWRITE_JPEG_QUALITY, 100])
         #print(savePath)
         print("帧存储index：" + str(frameCount) + '/' + str(total_frames))
         #break
