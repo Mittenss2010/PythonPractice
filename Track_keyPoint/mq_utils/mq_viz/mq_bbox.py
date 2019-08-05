@@ -4,6 +4,7 @@ from __future__ import absolute_import, division
 import random
 import mxnet as mx
 import cv2
+import numpy as np
 #from .image import plot_image
 
 
@@ -81,11 +82,11 @@ def plot_bbox(img, bboxes, scores=None, labels=None, thresh=0.5,
 
     minIndex = None
     
-    print(bboxes)
-    print('*********************************************************************')
+    # print(bboxes)
+    # print('*********************************************************************')
 
     for i, bbox in enumerate(bboxes):
-        print(bbox)
+        # print(bbox)
 
         # 屏蔽评分小于阈值的目标
         # 标签<0??? 不存在的标签？？or背景
@@ -110,6 +111,8 @@ def plot_bbox(img, bboxes, scores=None, labels=None, thresh=0.5,
         #绘制矩形框
         cv2.rectangle(img,(xmin,ymin),(xmax,ymax),(255,0,0), 2)
 
+        img[ymin:ymax, xmin:xmax] = (255,255,255)
+
         # 绘制类别名称或概率评分
         if class_names is not None and cls_id < len(class_names):
             class_name = class_names[cls_id]
@@ -126,8 +129,8 @@ def plot_bbox(img, bboxes, scores=None, labels=None, thresh=0.5,
 
             print('{:s} {:s}'.format(class_name, score))
             font = cv2.FONT_HERSHEY_SIMPLEX  # 定义字体
-            img	= cv2.putText(img, '{:s}'.format(class_name), (xmin, ymin), font, 0.6, (255, 255, 0), 2)
-            img	= cv2.putText(img, ' {:s}'.format(score), (xmin, ymin-15), font, 0.6, (0, 0, 255), 2)
+            # img	= cv2.putText(img, '{:s}'.format(class_name), (xmin, ymin), font, 0.6, (255, 255, 0), 2)
+            # img	= cv2.putText(img, ' {:s}'.format(score), (xmin, ymin-15), font, 0.6, (0, 0, 255), 2)
                          # 图像，        文字内容，          坐标 ，         字体， 大小， 颜色，   字体厚度
             
             # 结果列表 输出信息，加入色彩信息

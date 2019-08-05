@@ -11,7 +11,8 @@ __pycache__/
 /Track_keyPoint/ignore_params/*
 /Track_keyPoint/ignore_files/*
 /ignore_files/*
-/tools/ignore_files
+/tools/ignore_files/*
+/tests/ignore_files/*
 /__pycache__/*
 
 # Distribution / packaging
