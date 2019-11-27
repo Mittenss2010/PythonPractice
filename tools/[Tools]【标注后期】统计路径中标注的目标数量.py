@@ -60,6 +60,7 @@ if __name__ == "__main__":
     # xmlpath = './ignore_files/xmls/'
     # xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
     xmlpath = 'G:/cqsy_collection/cqsy_python_practice/tools/ignore_files/xmls/'
+    xmlpath = 'F:/DetectionData/data_zhengli/ztm/'
     # 字典合并
     class_names_dict = {}
     for item in os.listdir(xmlpath):

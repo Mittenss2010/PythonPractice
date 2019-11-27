@@ -19,7 +19,7 @@ from mq_utils.mq_viz import plot_bbox
 
 # 初始化模型相关变量
 ctx = mx.gpu(0)
-detector_name = "ssd_512_mobilenet1.0_coco"
+detector_name = "x.0_coco"
 detector = get_model(detector_name, pretrained=True, ctx=ctx)
 detector.reset_class(classes=['person'], reuse_weights={'person':'person'})
 
@@ -56,6 +56,8 @@ for i in range(num_frames):
                                         scores[0][person_ind[:, 0]],
                                         thresh=0.5)
     img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    
+    cv2.imwrite()
     cv2.imshow("img", img)
     cv2.waitKey(1)
 

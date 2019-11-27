@@ -23,39 +23,32 @@ except ImportError:
     字典：要修改的旧，新名称
 '''
 classnames_dict = {
-            'roi_zhuan_pan':'zhuanpan',
-            'zhuanpan_roi':'zhuanpan',
-            'roi_zhuan_pan1':'zhuanpan',
+
             'zhuanpan':'zhuanpan',
 
             'yeqidaqian_close':'yeqidaqian_close',
             'yeqidaqian_open':'yeqidaqian_open',
 
-            'ye_qi_da_qian':'yeqidaqian',
-            'yeqidaqian1':'yeqidaqian',
-            'yeqidqian':'yeqidaqian',
             'yeqidaqian':'yeqidaqian',
-            'yeyagan':'yeyagan',
-            
+            'yiqidaqian':'yeqidaqian',
 
             'taoguanqian':'taoguanqian',
             'taoguan':'taoguan',
             'bxingdiaoqian':'bxingdiaoqian',
-            'bxdq':'bxingdiaoqian',
-            'bxdiaoqian':'bxingdiaoqian',
-            'b_xing_diao_qian':'bxingdiaoqian',
+
 
             'gun_zi_fang_bu_xin':'gunzifangbuxin',
             'gunzifangbuxin':'gunzifangbuxin',
 
-            'xiao_bu_xin':'xiaofangbuxin',
             'xiaofangbuxin':'xiaofangbuxin',
 
             'diaoqia':'diaoqia',
-            'diao_qia':'diaoqia',
             'diaoqia-noxiaozi':'diaoqia',
             'diaoqia-xiaozi':'diaoqia_xiaozi',
             'diaoqia_xiaozi':'diaoqia_xiaozi',
+            'diaoqia_xizozi':'diaoqia_xiaozi',
+
+
             'tishengduanjie':'tishengduanjie',
             'tishengduanjie_tou':'tishengduanjie_tou',
 
@@ -67,22 +60,21 @@ classnames_dict = {
             'qidongkawa':'qidongqiawa',
             'qidongqiawa':'qidongqiawa',
 
-            'sanpianqiawa':'sanpianqiawa',
+            'sanpianqiawa':'sanpianshiqiawa',
+            'sanpianqiawai':'sanpianshiqiawa',
+            'sanpianshiqiawa':'sanpianshiqiawa',
 
             'zuangan':'zuangan',
             'zuangan_tou':'zuangan_tou',
-
-            'none':'xuanzhuanbuwei_nawujian',
+            'zuangantou':'zuangan_tou',
 
             'youtong':'youtong',
-            'you_tong':'youtong',
 
             'anquanlian':'anquanlian',
             'anquanlian_no':'anquanlian_no',
 
+            'fangpengqi':'fangpenqi',
             'fangpenqi':'fangpenqi',
-            'fang_pen_qi':'fangpenqi',
-            'fangkongqi':'fangpenqi',
 
             'gouzi':'gouzi',
             'shudongguan':'shudongguan',
@@ -90,8 +82,9 @@ classnames_dict = {
             'shudongkou':'shudongkou',
             'shu_dong_kou':'shudongkou',
             'shoudongkou':'shudongkou',
+            'shudongkou_open':'shudongkou_open',
 
-            'zuangantou':'zuangantou',         # 特有的一些项
+            #'zuangantou':'zuangantou',         # 特有的一些项
             'zhuanpan1':'zhuanpan',            
             'xiaozi-in-hand':'xiaozi_inhand',
             'fangzuangan':'fangzuangan',
@@ -99,12 +92,15 @@ classnames_dict = {
             'yeyamaotou':'yeyamaotou',
 
             'tisi':'tisi',
+            'tizi':'tisi',
 
 
             'roi_ti_sheng_duan_jie':'tishengduanjie_roi',
             'tishengduanjie_roi':'tishengduanjie_roi',
-            'roi_hu_lian':'hulian_roi',
+
             'hulian_roi':'hulian_roi',
+            'hulian_rio':'hulian_roi',
+            'hulian':'hulian_roi',
 
             'roi_hu_lan':'hulan_roi',
             'hulan_roi':'hulan_roi',
@@ -121,11 +117,14 @@ classnames_dict = {
 
             'tianjiu':'tieqiao',
             'tieqiao':'tieqiao',
+            'chanzi':'tieqiao',
 
             'qianzi':'qianzi',
             'lianqian':'lianqian',
 
             'banshou':'banshou',
+            'bashou':'banshou',
+
             'langtou':'langtou',
             'guaniqi':'guaniqi',
             'huangyouqiang':'huangyouqiang',
@@ -142,23 +141,30 @@ classnames_dict = {
             'anquanmao':'anquanmao_red',
             'anquanmao-red':'anquanmao_red',
             'anquanmao_red':'anquanmao_red',
+            'anquanlian_red':'anquanmao_red',
+            'anquanlian_white':'anquanmao_white',
             'anquanmao_white':'anquanmao_white',
+            'anquanmao_whtite':'anquanmao_white',
             'anquanmao_yellow':'anquanmao_yellow',
 
             'kouzhao':'kouzhao',
             'gongxie':'gongxie',
+            'gongxiew':'gongxie',
+
             'bianxie':'bianxie',
             'gongzhuang':'gongzhuang',
             'bianzhuang':'bianzhuang',
             'shoutao':'shoutao',
-            'shaoutao':'shoutao',
             'shou':'shou',
+
             'humujing':'humujing',
             'houmujing':'humujing',
 
             'shuitong':'shuitong',
             'tuoba':'tuoba',
             'shuiping':'shuiping',
+            'shuipng':'shuiping',
+
             'chouyan':'chouyan',
             'beizi':'shuibei',
             'shuibei':'shuibei',
@@ -171,7 +177,36 @@ classnames_dict = {
             'shou-na':'shou',
             'shou-down':'shou',
             'shou-up':'shou',
+
+            'miehuoqi':'miehuoqi',
+            'dianhanguang':'dianhanguang',
+            'fanguangfu':'fanguangfu',
+
+            
+            'huanlian_roi':'hulian_roi',
+            'gouzuangan':'gouzuangan',
+
+           #  chanzi
+           
+            'dousheng':'dousheng',
+            'douzuanju':'douzuanju',
+            'dagou':'dagou',
+            'houtai':'houtai',
+            'zhiliang':'zhiliang',
+            'anquansheng':'anquansheng',
+            'youche':'youche',
+            'diaolan':'diaolan',
+
+
+            'tuituji':'tuituji',
+            'guandaochache':'guandaochache',
+            'diaoche':'diaoche',
+            'zhitui':'zhitui',
+
+            'lunzi':'lunzi',
+            'cheliang':'cheliang'
             }
+
 
 
 
@@ -187,8 +222,11 @@ def rename_label(filename, xmlsPath, xmlsPath_new):
 
     for obj in root.findall('object'):                      # 使用list not iter  
         cls_name = obj.find('name').text.strip().lower()    # 获取classname
-        cls_name = classnames_dict[cls_name]                # 更新classname
-        obj.find('name').text = cls_name
+        if cls_name == 'yeqidaqian_close':
+            print(cls_name)
+            obj.find('name').text = 'yeqidaqian_open'
+        # cls_name = classnames_dict[cls_name]                # 更新classname
+        # obj.find('name').text = cls_name
 
     outputPath = xmlsPath_new + filename
     tree.write(outputPath, "UTF-8")
@@ -196,16 +234,13 @@ def rename_label(filename, xmlsPath, xmlsPath_new):
 
 if __name__ == "__main__":
 
-    #xmlsPath = 'G:/cqsy_collection/2019-07-16-mix/'
-    #xmlsPath = 'G:/cqsy_collection/数据标注管理/1670/'
-    #xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【已标注】接收的图片/合并/01/'
-    # xmlsPath = 'G:/beizi/'
-    # xmlsPath = 'G:/VOCdevkit/'
-    xmlsPath = 'G:/Totrain-20190726/'
-
-
+    # xmlsPath = 'H:/【0 标注数据】/数据集版本管理/Mix_base_test_40656/tmp/'
+    xmlsPath = 'F:/数据集版本管理/Mix_base_test_40656/huanlian_roi/'
+    xmlsPath = 'G:/ztm01_1/液气大钳_close改为_open/'
     dirName = xmlsPath.split('/')[-2]
     originPath = xmlsPath[:-len(dirName)-2]
+
+
     xmlsPath_new = originPath + '/newXmls/'
     #print(xmlsPath_new)
     if not os.path.exists(xmlsPath_new):

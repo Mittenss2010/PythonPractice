@@ -4,7 +4,10 @@ import time
 
 # 不同文件夹数据，文件重名处理
 
-xmlsPath = './VOCdevkit/'
+# xmlsPath = './VOCdevkit/'
+# xmlsPath = 'G:/cqsy_collection/总数据集-不完整/datasets/'
+xmlsPath = 'J:/【0 标注数据】/【已标注】接收的图片/2019-08-06/1108_201/'
+
 xmlsPath_new = './不成对的文件/'
 
 if not os.path.exists(xmlsPath_new):
