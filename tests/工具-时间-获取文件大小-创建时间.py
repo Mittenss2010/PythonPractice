@@ -1,8 +1,8 @@
-python 获取文件大小，创建时间和访问时间
-2018年03月12日 14:03:00 HeatDeath 阅读数 3441更多
-个人分类： Python基础
-python 获取文件大小，创建时间和访问时间 
-http://www.cnblogs.com/shaosks/p/5614630.html
+# python 获取文件大小，创建时间和访问时间
+# 2018年03月12日 14:03:00 HeatDeath 阅读数 3441更多
+# 个人分类： Python基础
+# python 获取文件大小，创建时间和访问时间 
+# http://www.cnblogs.com/shaosks/p/5614630.html
 
 # -*- coding: UTF8 -*-
 

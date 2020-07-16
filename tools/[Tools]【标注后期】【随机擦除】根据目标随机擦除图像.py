@@ -41,7 +41,7 @@ def erasure_label(filename, filePath, filePath_new, classname):
             ymax = bndbox.find('ymax').text.strip().lower()
             img[int(ymin):int(ymax),int(xmin):int(xmax)] = (0,0,0)
             # 移除相应的xml元素
-
+            
             
     cv2.imwrite(pic_path_new,img)
 

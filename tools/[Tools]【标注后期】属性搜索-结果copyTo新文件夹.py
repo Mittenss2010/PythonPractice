@@ -13,18 +13,7 @@ except ImportError:
 '''
     列表：要搜索的属性列表
 '''
-classnames_list = [ 'a',
-                    's',
-                    'tushengduanjie_tou',
-                    'gongie',
-                    'shiutao',
-                    'zuanguan_roi',
-                    'bxdiaoqian',
-                    'bxingdianqian',
-                    'pangpenqi',
-                    'anquanlian\\',
-                    'anquanmao——red',
-                    'shiutao'
+classnames_list = [ 'static'
                     ]
 
 def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
@@ -40,7 +29,8 @@ def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
     for obj in root.findall('object'):                      # 使用list not iter  
         cls_name = obj.find('name').text.strip().lower()    # 获取classname
         for item in classnames_list:
-            if cls_name == item:
+            # if cls_name == item:
+            if item in cls_name:
                 father_Path = get_fatherPath(xmlsPath)
                 newPath = father_Path + '/' + item + '/'
                 if not os.path.exists(newPath):
@@ -76,12 +66,7 @@ def getNewPath(xmlsPath, classnames_list):
 
 if __name__ == "__main__":
 
-
-   # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/1670/'
-    # xmlsPath = 'G:/2019-07-21/'
-    # xmlsPath = 'G:/300/'
-    # xmlsPath = 'G:/2019-07-22/'
-    xmlsPath = 'G:/Totrain-20190726/'
+    xmlsPath = 'G:/@@20200714/001/'
 
     xmlsPath_list = getNewPath(xmlsPath, classnames_list)
 

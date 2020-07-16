@@ -40,7 +40,7 @@ def statistic_obj(class_names_dict):
         #print(item, class_names_dict[item])
         precent = class_names_dict[item]/total_count*100
         print(item + ',')
-        # print(str(index+1) +'_' +  item + ': ' + format(precent, '.4f') + '%')
+        print(str(index+1) +'_' +  item + ': ' + format(precent, '.4f') + '%')
 
 def return_classnames_list(Path):
     f = open(Path, 'r')                   
@@ -54,22 +54,16 @@ def return_classnames_list(Path):
 
 if __name__ == "__main__":
 
+    xmlsPath = 'G:/@@@@Now_DataPro/0323_labels/temp_ch2/'
 
-    
-    xmlsPath = 'G:/data/40656-数据集/【接收】/20190813/tmp/'
-    xmlsPath = 'F:/temp-test/'
-
-    # G:\data\40656-数据集\【接收】\20190812\
     # names_Path = 'F:/数据集版本管理/Mix_base_test_40656/voc.names'
 
     # classnames_list = return_classnames_list(names_Path)
-
     class_names_dict = {}
     # 针对单个文件夹
     for item in tqdm(os.listdir(xmlsPath)):
         if item[-4:] == '.xml':
             #print(xmlsPath + item)
             union_dict(class_names_dict, get_labels(xmlsPath + item))
-    statistic_obj(class_names_dict)
 
-   
+    statistic_obj(class_names_dict)

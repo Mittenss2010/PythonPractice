@@ -70,7 +70,7 @@ def statistic_obj(class_names_dict):
     #     precent = class_names_dict[item]/total_count*100
     #     print(item + ': ' + format(precent, '.2f') + '%')
 
-def return_classnames_list(Path):
+def get_classnames_list(Path):
     f = open(Path, 'r')                   #以读方式打开文件
     classnames_list = list()
     for line in f.readlines():                          #依次读取每行
@@ -81,13 +81,11 @@ def return_classnames_list(Path):
     return classnames_list
 
 if __name__ == "__main__":
-
-
-    # xmlsPath = 'G:/data/40656-数据集/【接收】/20190813-no/chouyan/'
-    xmlsPath = 'F:/数据集版本管理/20190914_datasets/tmp'
-    names_Path = 'F:/数据集版本管理/20190914_datasets/voc.names'
+    xmlsPath = 'G:/@@label_obj/@@labeled_data/tmp/'
+    # xmlsPath = 'G:/@@label_obj/50699_2020-05-29AnquanlianNo_/temp/'
+    names_Path = 'F:/检测数据-数据集版本管理/20190914_datasets/voc.names'
     
-    classnames_list = return_classnames_list(names_Path)
+    classnames_list = get_classnames_list(names_Path)
     class_names_dict = {}
     
     # 针对单个文件夹

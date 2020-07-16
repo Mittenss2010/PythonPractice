@@ -9,245 +9,31 @@ try:
 except ImportError:
     import xml.etree.ElementTree as ET
 
-# detection中的类别属性
-# newList = ('zhuanpan','yeqidaqian_close','yeqidaqian','taoguanqian','taoguan','bxingdiaoqian','gunzifangbuxin','xiaofangbuxin','diaoqia','diaoqia_xiaozi','tishengduanjie','zuanting',
-#             'qiawa','anquanqiawa','duopianqiawa','zuangan','xuanzhuanbuwei_nawujian','youtong','anquanlian','anquanlian_no','fangpenqi','gouzi','shudongguan','shudongkou',
-#             'zuangantou',         # 特有的一些项
-#             'xiaozi_inhand','fangzuangan','qianzi','banshou','langtou','guaniqi','huangyouqiang','gangju','zuantou','zuantouhezi','tieqiao'
-#             'ren','anquanmao_red','kouzhao','gongxie','bianxie','gongzhuang','bianzhuang','shoutao','shou',
-#             'shouji','shuiping','chouyan','beizi','benzi','mabu',
-#             'chelun')
 
 
-'''
-    字典：要修改的旧，新名称
-'''
-classnames_dict = {
-
-            'zhuanpan':'zhuanpan',
-
-            'yeqidaqian_close':'yeqidaqian_close',
-            'yeqidaqian_open':'yeqidaqian_open',
-
-            'yeqidaqian':'yeqidaqian',
-            'yiqidaqian':'yeqidaqian',
-
-            'taoguanqian':'taoguanqian',
-            'taoguan':'taoguan',
-            'bxingdiaoqian':'bxingdiaoqian',
-
-
-            'gun_zi_fang_bu_xin':'gunzifangbuxin',
-            'gunzifangbuxin':'gunzifangbuxin',
-
-            'xiaofangbuxin':'xiaofangbuxin',
-
-            'diaoqia':'diaoqia',
-            'diaoqia-noxiaozi':'diaoqia',
-            'diaoqia-xiaozi':'diaoqia_xiaozi',
-            'diaoqia_xiaozi':'diaoqia_xiaozi',
-            'diaoqia_xizozi':'diaoqia_xiaozi',
-
-
-            'tishengduanjie':'tishengduanjie',
-            'tishengduanjie_tou':'tishengduanjie_tou',
-
-            'zuanting':'zuanting',
-
-            'qiawa':'qiawa',
-            'anquanqiawa':'anquanqiawa',
-            'duopianqiawa':'duopianqiawa',
-            'qidongkawa':'qidongqiawa',
-            'qidongqiawa':'qidongqiawa',
-
-            'sanpianqiawa':'sanpianshiqiawa',
-            'sanpianqiawai':'sanpianshiqiawa',
-            'sanpianshiqiawa':'sanpianshiqiawa',
-
-            'zuangan':'zuangan',
-            'zuangan_tou':'zuangan_tou',
-            'zuangantou':'zuangan_tou',
-
-            'youtong':'youtong',
-
-            'anquanlian':'anquanlian',
-            'anquanlian_no':'anquanlian_no',
-
-            'fangpengqi':'fangpenqi',
-            'fangpenqi':'fangpenqi',
-
-            'gouzi':'gouzi',
-            'shudongguan':'shudongguan',
-
-            'shudongkou':'shudongkou',
-            'shu_dong_kou':'shudongkou',
-            'shoudongkou':'shudongkou',
-            'shudongkou_open':'shudongkou_open',
-
-            #'zuangantou':'zuangantou',         # 特有的一些项
-            'zhuanpan1':'zhuanpan',            
-            'xiaozi-in-hand':'xiaozi_inhand',
-            'fangzuangan':'fangzuangan',
-            'ye_ya_mao_tou':'yeyamaotou',
-            'yeyamaotou':'yeyamaotou',
-
-            'tisi':'tisi',
-            'tizi':'tisi',
-
-
-            'roi_ti_sheng_duan_jie':'tishengduanjie_roi',
-            'tishengduanjie_roi':'tishengduanjie_roi',
-
-            'hulian_roi':'hulian_roi',
-            'hulian_rio':'hulian_roi',
-            'hulian':'hulian_roi',
-
-            'roi_hu_lan':'hulan_roi',
-            'hulan_roi':'hulan_roi',
-
-            'roi_zuan_gan':'zuangan_roi',
-            'roi_zuan_ju':'zuangan_roi',
-            'zuangan_roi':'zuangan_roi',
-
-            'fengdongjiaoche':'fengdongjiaoche',
-            'feng_dong_jiao_che':'fengdongjiaoche',
-
-            'san_pian_shi_qia_wa':'sanpianshiqiawa',
-            'sanpianshiqiawa':'sanpianshiqiawa',     
-
-            'tianjiu':'tieqiao',
-            'tieqiao':'tieqiao',
-            'chanzi':'tieqiao',
-
-            'qianzi':'qianzi',
-            'lianqian':'lianqian',
-
-            'banshou':'banshou',
-            'bashou':'banshou',
-
-            'langtou':'langtou',
-            'guaniqi':'guaniqi',
-            'huangyouqiang':'huangyouqiang',
-            'gangju':'gangju',
-            'zuantou':'zuantou',
-            'zuantouhezi':'zuantouhezi',
-            'zuan_tou_he_zi':'zuantouhezi',
-
-            'person':'ren',
-            'ren':'ren',
-
-
-            'anquanmao_no':'anquanmao_no',
-            'anquanmao':'anquanmao_red',
-            'anquanmao-red':'anquanmao_red',
-            'anquanmao_red':'anquanmao_red',
-            'anquanlian_red':'anquanmao_red',
-            'anquanlian_white':'anquanmao_white',
-            'anquanmao_white':'anquanmao_white',
-            'anquanmao_whtite':'anquanmao_white',
-            'anquanmao_yellow':'anquanmao_yellow',
-
-            'kouzhao':'kouzhao',
-            'gongxie':'gongxie',
-            'gongxiew':'gongxie',
-
-            'bianxie':'bianxie',
-            'gongzhuang':'gongzhuang',
-            'bianzhuang':'bianzhuang',
-            'shoutao':'shoutao',
-            'shou':'shou',
-
-            'humujing':'humujing',
-            'houmujing':'humujing',
-
-            'shuitong':'shuitong',
-            'tuoba':'tuoba',
-            'shuiping':'shuiping',
-            'shuipng':'shuiping',
-
-            'chouyan':'chouyan',
-            'beizi':'shuibei',
-            'shuibei':'shuibei',
-            'benzi':'benzi',
-            'mabu':'mabu',
-            'shouji':'shouji',
-            'yusan':'yusan',
-            
-            'none':'chelun',
-            'shou-na':'shou',
-            'shou-down':'shou',
-            'shou-up':'shou',
-
-            'miehuoqi':'miehuoqi',
-            'dianhanguang':'dianhanguang',
-            'fanguangfu':'fanguangfu',
-
-            
-            'huanlian_roi':'hulian_roi',
-            'gouzuangan':'gouzuangan',
-
-           #  chanzi
-           
-            'dousheng':'dousheng',
-            'douzuanju':'douzuanju',
-            'dagou':'dagou',
-            'houtai':'houtai',
-            'zhiliang':'zhiliang',
-            'anquansheng':'anquansheng',
-            'youche':'youche',
-            'diaolan':'diaolan',
-
-
-            'tuituji':'tuituji',
-            'guandaochache':'guandaochache',
-            'diaoche':'diaoche',
-            'zhitui':'zhitui',
-
-            'lunzi':'lunzi',
-            'cheliang':'cheliang'
-            }
-
-
-
-
-def rename_label(filename, xmlsPath, xmlsPath_new):
+def rename_label(filename, xmlsPath):
     """
         Parse xml file and return labels.
         解析xml，并根据字典中的项目来修订新的名称
     """
-
     anno_path = xmlsPath + filename
     tree = ET.parse(anno_path)
     root = tree.getroot()
 
     for obj in root.findall('object'):                      # 使用list not iter  
         cls_name = obj.find('name').text.strip().lower()    # 获取classname
-        if cls_name == 'yeqidaqian_close':
-            print(cls_name)
-            obj.find('name').text = 'yeqidaqian_open'
-        # cls_name = classnames_dict[cls_name]                # 更新classname
-        # obj.find('name').text = cls_name
+        if cls_name == 'anquanlian					 static':
+            obj.find('name').text = 'anquanlian'
+        if cls_name == 'yusan				 static':
+            obj.find('name').text = 'yusan'
 
-    outputPath = xmlsPath_new + filename
-    tree.write(outputPath, "UTF-8")
+    tree.write(anno_path, "UTF-8")
 
 
 if __name__ == "__main__":
 
-    # xmlsPath = 'H:/【0 标注数据】/数据集版本管理/Mix_base_test_40656/tmp/'
-    xmlsPath = 'F:/数据集版本管理/Mix_base_test_40656/huanlian_roi/'
-    xmlsPath = 'G:/ztm01_1/液气大钳_close改为_open/'
-    dirName = xmlsPath.split('/')[-2]
-    originPath = xmlsPath[:-len(dirName)-2]
 
-
-    xmlsPath_new = originPath + '/newXmls/'
-    #print(xmlsPath_new)
-    if not os.path.exists(xmlsPath_new):
-       os.mkdir(xmlsPath_new)
-       
+    xmlsPath = 'G:/@@20200714/static/'
     for filename in tqdm(os.listdir(xmlsPath)):
         if filename[-4:] == '.xml':
-            # print(filename)
-            rename_label(filename, xmlsPath, xmlsPath_new)
-            # break
+            rename_label(filename, xmlsPath)

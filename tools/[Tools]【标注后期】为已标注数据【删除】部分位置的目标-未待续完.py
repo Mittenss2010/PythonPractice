@@ -42,6 +42,7 @@ if __name__ == "__main__":
             tree_new = read_xml(path_filename)
             root = tree_new.getroot()
 
+        
             target_objs = []                                                    # 待添加目标obj
             for obj in root.findall('object'):
                 cls_name = obj.find('name').text.strip().lower()                # 获取 classname

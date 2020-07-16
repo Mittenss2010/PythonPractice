@@ -99,15 +99,13 @@ class ConstructDatasets():
 
 if __name__ == "__main__":
     
-    # dataPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-20-表演过的数据集-showatdoor/'
 
-    dataPath = 'G:/20190722/'
-    # dataPath = 'G:/VOCdevkit/'
+    dataPath = 'G:/2020年7月15日-50627采集的视频/temp/'
 
     # 验证集比例
     val_percent = 0.1
     train_percent = 0.9
 
-    constructer = ConstructDatasets(dataPath,train_percent, val_percent)
+    constructer = ConstructDatasets(dataPath, train_percent, val_percent)
     constructer.construct_fileFrame()
     constructer.select_and_move()

@@ -71,20 +71,9 @@ def statistic_obj(class_names_dict):
     #     print(item + ': ' + format(precent, '.2f') + '%')
 
 if __name__ == "__main__":
-    # xmlpath = './ignore_files/xmls/'
-    # xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
-    # xmlpath = 'G:/【cqsy_collection】/2019-07-16-mix/'
-    
-    #xmlpath = 'G:/【cqsy_collection】/2019-07-16-mix/'
-    #xmlpath = 'G:/datasets-if/'
-    #xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-19/'
-    # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【数据集】测试过的数据集/2019-07-20-表演过的数据集-showatdoor/'
-    # xmlsPath = 'G:/2019-07-21/'
-    xmlsPath = 'G:/2019-07-22/'
-    #xmlsPath = 'G:/20190722/'
-    xmlsPath = 'G:/Totrain-20190726/'
+ 
+    xmlsPath = 'G:/@@20200714/001/'
 
-   # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/【已标注】接收的图片/2019-07-22/300/'
     # 字典合并
     class_names_dict = {}
     

@@ -6,9 +6,11 @@ import time
 
 # xmlsPath = './VOCdevkit/'
 # xmlsPath = 'G:/cqsy_collection/总数据集-不完整/datasets/'
-xmlsPath = 'J:/【0 标注数据】/【已标注】接收的图片/2019-08-06/1108_201/'
 
-xmlsPath_new = './不成对的文件/'
+xmlsPath = 'G:/@@label_obj/@@labeled_data/tmp/' 
+xmlsPath = 'G:/@@label_obj/50699_2020-05-29AnquanlianNo_/temp/'
+
+xmlsPath_new = 'G:/@@label_obj/@@labeled_data/tmp/不成对的文件/'
 
 if not os.path.exists(xmlsPath_new):
     os.mkdir(xmlsPath_new)

@@ -54,19 +54,14 @@ def statistic_obj(class_names_dict):
     #     precent = class_names_dict[item]/total_count*100
     #     print(item + ': ' + format(precent, '.2f') + '%')
     
-
-
 if __name__ == "__main__":
-    # xmlpath = './ignore_files/xmls/'
-    # xmlpath = 'D:/windows_v1.8.1/【数据】智能行为识别仪/【数据】异常行为识别 300张-第4批/TEMP/'
-    xmlpath = 'G:/cqsy_collection/cqsy_python_practice/tools/ignore_files/xmls/'
-    xmlpath = 'F:/DetectionData/data_zhengli/ztm/'
+
+    xmlpath = 'G:/@@@@Now_DataPro/00000/'
     # 字典合并
     class_names_dict = {}
     for item in os.listdir(xmlpath):
         if item[-4:] == '.xml':
             #print(item)
             union_dict(class_names_dict, get_labels(xmlpath + item))
-
     statistic_obj(class_names_dict)
 

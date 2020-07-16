@@ -14,14 +14,8 @@ except ImportError:
     列表：要搜索的属性列表
 '''
 classnames_list = [ 
-                    'sanpianqiawai',
-                    'bashou',
-                    'hulian_rio',
-                    'sanpianqiawa',
-                    'anquanlian_white',
-                    'anquanlian_red',
-                    'hulian',
-                    'zuangantou'
+                    'yeqidaqian_no',
+                    'renw',
                     ]
 
 def get_xmls_cotainedlabel(filename, xmlsPath, classnames_list):
@@ -72,18 +66,7 @@ def getNewPath(xmlsPath, classnames_list):
 
 
 if __name__ == "__main__":
-
-
-   # xmlsPath = 'G:/【cqsy_collection】/数据标注管理/1670/'
-    # xmlsPath = 'G:/2019-07-21/'
-    # xmlsPath = 'G:/300/'
-    # xmlsPath = 'G:/2019-07-22/'
-    xmlsPath = 'G:/Totrain-20190726/'
-    xmlsPath = 'G:/cqsy_collection/总数据集-不完整/datasets/'
-    xmlsPath = 'J:/【0 标注数据】/【已标注】接收的图片/2019-08-06/1108_201/'
-    xmlsPath = 'G:/tmp/'
-    xmlsPath = 'F:/数据集版本管理/Mix_base_test_40656/tmp/'
-    xmlsPath = 'G:/data/40656-数据集/【接收】/20190812/tmp/'
+    xmlsPath = 'G:/@@label_obj/2020-05-24-biaoyan-tolabel_data/001/'
 
     xmlsPath_list = getNewPath(xmlsPath, classnames_list)
 
